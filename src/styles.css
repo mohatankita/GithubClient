@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Margarine|Roboto|Open+Sans');
+
+body {
+    font-family: 'Margarine', 'Roboto', 'Open Sans', sans-serif;
+}
+
+.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination {
+    display: none!important;
+}
+
+.mat-tab-lebels {
+    width: 100%!important;
+}
+
+.mat-tab-list {
+    position: relative;
+    left: 0px!important;
+}
+
+.mat-tab-label  {
+    min-width: 130px!important;
+    height: 70px!important;
+}
+
+.mat-ink-bar {
+    width: 130px!important;
+}
+
+.mat-card-header-text {
+    margin: 0!important;
+}
+
+.mat-card-content {
+    margin-bottom: 0!important;
+}
+
+.mat-card>.mat-card-actions:last-child {
+    margin-left: 0px!important;
+    margin-right: 10px!important;
+}
+
+.custom-circle {
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    padding: 0 12px;
+}

@@ -1,0 +1,41 @@
+.header_row {
+    background: darkmagenta;
+    color: white;
+}
+
+.d-flex {
+    width: 100%;
+}
+
+.profileurl {
+    color: white;
+}
+
+.logo {
+    padding: 5px;
+}
+
+.navlist, .userlist {
+    margin-top: 1rem;
+}
+
+.navlist li {
+    list-style-type: none;
+    display: inline;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.userlist li {
+    list-style-type: none;
+    display: inline;
+    padding: 0 8px;
+}
+
+.search {
+    width: 45%;
+}
+
+.navbar {
+    width: 60%;
+}

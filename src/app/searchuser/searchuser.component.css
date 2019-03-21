@@ -1,0 +1,119 @@
+.profile_pic {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+
+.user_name h4{
+    font-weight: bold!important;
+}
+
+.user_info {
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.user_info p {
+    width: 100%;
+    word-break: break-word;
+}
+
+.user_name , .user_info{
+    margin: 0;
+    padding: 0 20px;
+}
+
+.overview_row {
+    padding: 30px 10px!important;
+}
+
+.repo_row {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.border-left-primary {
+    border-left: .25rem solid darkmagenta!important;
+}
+
+.border-left-success {
+    border-left: .25rem solid #1cc88a!important;
+}
+
+.border-left-info {
+    border-left: .25rem solid #36b9cc!important;
+}
+
+.border-left-warning {
+    border-left: .25rem solid #f6c23e!important;
+}
+
+.card .card-header[data-toggle=collapse] {
+    text-decoration: none;
+    position: relative;
+    padding: .75rem 3.25rem .75rem 1.25rem;
+}
+
+.headline {
+    background: darkmagenta;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    margin: 0 auto;
+    max-width: 93%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.headline h5 {
+    padding: 5px;
+    margin-bottom: 0;
+}
+
+.card .card-header[data-toggle=collapse].collapsed {
+    border-radius: .35rem;
+}
+
+.card .card-header[data-toggle=collapse]::after {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-right: 1.725rem;
+    line-height: 51px;
+    font-weight: 900;
+    content: '\f107';
+    font-family: 'Font Awesome 5 Free';
+    color: #d1d3e2;
+}
+
+.text-warning {
+    color: darkmagenta;
+}
+
+.card-body p{
+    font-family: 'Roboto', 'Open Sans', sans-serif;
+}
+
+.custom_circle {
+    font-size: 10px;
+    color: darkmagenta;
+    padding: 5px 10px;
+}
+
+.custom_branch {
+    font-size: 10px;
+    padding: 5px 10px;
+}
+
+.custom_star {
+    font-size: 10px;
+    padding: 5px 10px;
+}
+
+.date {
+    font-size: 10px;
+    padding: 3px 10px;
+}
+
+.text-primary {
+    color: darkmagenta!important;
+}

@@ -1,0 +1,44 @@
+.nofound {
+    width: 100%;
+    height: 89vh;
+    background: darkmagenta no-repeat center;
+    background-size: cover;
+}
+.error {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+
+.errorpage {
+    padding: 25px 0 0 0;
+    font-size: 3rem;
+}
+
+.nopage {
+    font-size: 2rem;
+}
+
+h1 {
+    font-size:13rem;
+}
+
+@media screen and (max-width: 767px) {
+
+    h1 {
+        font-size: 11rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    h1 {
+        font-size: 11rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    h1 {
+        font-size: 7rem;
+    }
+}

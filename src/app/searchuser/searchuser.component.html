@@ -1,0 +1,211 @@
+<app-navheader></app-navheader>
+
+<app-loader *ngIf="loading"></app-loader>
+
+<div class="container-fluid" *ngIf="!loading">
+  <div class="row">
+    <div class="col-lg-3 col-md-3">
+      <div class="row">
+        <div class="userimage">
+          <img src="{{userinfo.avatar_url}}" alt="Profile Picture" class="profile_pic">
+        </div>
+      </div>
+      <div class="row user_name">
+        <h4>{{userinfo.login}}</h4>
+      </div>
+      <div class="row user_name">
+        <h4>{{userinfo.name}}</h4>
+      </div>
+      <div class="row user_info">
+        <p>{{userinfo.bio}}</p>
+        <p style="font-style:italic;text-decoration: underline;">{{userinfo.blog}}</p>
+      </div>
+    </div>
+
+    <div class="col-lg-9 col-md-9">
+      <div class="row overview_row">
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Repositories</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{userinfo.public_repos}}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-book fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Followers</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{userinfo.followers}}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Following</div>
+                  <div class="row no-gutters align-items-center">
+                    <div class="col-auto">
+                      <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{userinfo.following}}</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-user-friends fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Gists</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800">{{userinfo.public_gists}}</div>
+                </div>
+                <div class="col-auto">
+                  <i class="fas fa-book fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 headline">
+          <h5>Repositories</h5>
+        </div>
+      </div>
+
+
+      <div class="row repo_row">
+        <div class="col-lg-6 col-md-6" *ngFor="let repo of userrepo | paginate: { itemsPerPage:6, currentPage: p}">
+          <div class="card shadow mb-4">
+            <!-- Card Header - Accordion -->
+            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button"
+              aria-expanded="true" aria-controls="collapseCardExample">
+              <h6 class="m-0 font-weight-bold text-primary">{{repo.name}}</h6>
+            </a>
+            <!-- Card Content - Collapse -->
+            <a href="{{repo.svn_url}}" style="color:inherit; text-decoration: none;" target="_blank">
+              <div class="collapse show" id="collapseCardExample">
+                <div class="card-body">
+                  <div class="row">
+                    <p>{{repo.description}}</p>
+                  </div>
+                  <div class="row">
+                    <i class="fas fa-circle custom_circle"><span> {{repo.language}}</span></i>
+                    <i class="fas fa-code-branch custom_branch"><span> {{repo.forks}}</span></i>
+                    <i class="fas fa-star custom_star">&nbsp; {{repo.stargazers_count}}</i>
+                    <span class="date">Updated {{repo.updated_at | date}}</span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+        <pagination-controls class="my-pagination" (pageChange)="p = $event" previousLabel="Previous" nextLabel="Next"
+          maxSize="0" responsive="true"></pagination-controls>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 headline">
+          <h5>Following</h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let following of following">
+          <div class="card border-left-warning shadow h-100 py-2">
+            <a [routerLink]="['/search/' + following.login]" style="color: inherit; text-decoration: none" target="_blank">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">{{following.login}}</div>
+                    <div style="font-size:11px">
+                      <p>{{following.html_url}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 headline">
+          <h5>Followers</h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let following of followers">
+          <div class="card border-left-success shadow h-100 py-2">
+            <a [routerLink]="['/search/' + following.login]" style="color: inherit; text-decoration: none" target="_blank">
+              <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">{{following.login}}</div>
+                    <div style="font-size:11px">
+                      <p>{{following.html_url}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12 col-md-12 headline">
+          <h5>Events</h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4" *ngFor="let event of events">
+          <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-info text-uppercase mb-1">{{event.type}}</div>
+                  <div style="font-size:14px">
+                    <p>{{event.repo.name}}</p>
+                  </div>
+                  <div style="font-size:11px">
+                    <i class="far fa-clock"></i><span>&nbsp; Created on {{event.created_at | date }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-fluid">
+
+  <!-- Header -->
+  <div class="row header_row">
+    <header class="d-flex">
+      <div class="d-inline-flex p-2">
+        <div class="logo">
+          <a [routerLink]="['/profile']" class="profileurl"><i class="fab fa-github" style="font-size:45px;"></i></a>
+        </div>
+      </div>
+
+      <nav class="navbar d-inline-flex p-2">
+        <div class="search">
+          <input type="search" class="form-control" placeholder="Search..." [(ngModel)]="searchUser" (change)="getUser($event)">
+        </div>
+      </nav>
+    </header>
+  </div>
+</div>
